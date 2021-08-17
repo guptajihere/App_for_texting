@@ -1,4 +1,4 @@
-package com.example.chat_app;
+package com.example.app_for_chatting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         message=findViewById(R.id.MessageEt);
         send=findViewById(R.id.button);
 
+        this.setTitle("Home screen");
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,11 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 String msg=message.getText().toString();
 
                 String numberURL="https://api.whatsapp.com/send?phone=91"+ number +"&text=" +msg;  // "&text" is another url
+                // this url will be common but the number after the country code won't be so we accept it in editText and convert into String
 
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(numberURL)); // intent is used to change application or an activity on press of a button
-               // ACTION_SEND intent is used as we want to send a Uri from one application to another
-            startActivity(intent);
-            //setTitle("Home chat");
+                // ACTION_VIEW intent is used as we want to send a Uri from one application to another
+                startActivity(intent);
+
 
             }
         });
