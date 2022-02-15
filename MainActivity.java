@@ -12,6 +12,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     EditText phone;
     EditText message;
+   // EditText code;
     Button send;
 
     @Override
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         phone=findViewById(R.id.PhoneEt);
         message=findViewById(R.id.MessageEt);
+        //code=findViewById((R.id.code));
         send=findViewById(R.id.button);
 
         this.setTitle("Home screen");
@@ -30,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
                 String number=phone.getText().toString();  // This gets the number that we type in editText,converts it into a string and uses it in the next step
                 String msg=message.getText().toString();
+              //  String cd=code.getText().toString();
 
-                String numberURL="https://api.whatsapp.com/send?phone=91"+ number +"&text=" +msg;  // "&text" is another url
+                String numberURL="https://api.whatsapp.com/send?phone=+"+ number +"&text=" +msg;  // "&text" is another url
                 // this url will be common but the number after the country code won't be so we accept it in editText and convert into String
 
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(numberURL)); // intent is used to change application or an activity on press of a button
